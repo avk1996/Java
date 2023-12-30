@@ -1,9 +1,12 @@
+import java.util.function.Consumer;
 
 public class LambdaExamples {
 
 	public static void main(String[] args) {
-//	 System.out.println((String s)->{"lambda expression";});
-		String  s =null;
-		System.out.println((s)->{"lambda expression";});
+		Consumer<String> lambdaExpression = (s) -> {
+			System.out.println("lambda expression with "+s);
+		};
+		String input = "Hello Lambda";
+		lambdaExpression.accept(input);
 	}
 }
