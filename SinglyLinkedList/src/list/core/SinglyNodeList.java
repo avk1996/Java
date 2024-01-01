@@ -43,18 +43,20 @@ public class SinglyNodeList {
 			Node trav = head;
 			// end of list is pointed to null so we will traverse the loop
 			// till we get null
-			int i = 0;
-			System.out.println("Index\tdata");
+//			int i = 0;
+			
+			System.out.print("HEAD");
 			while (trav != null) {
-				++i;
+//				++i;
 				// main aim of display is to print all values of linked list
 				// so here we first print data of first element
-				System.out.println(i + "\t" + trav.data);
+				System.out.print(" -> " + trav.data);
 				// now have to move forward to next node
 				// to do that we have to use next reference
 				// which is reference of next node
 				trav = trav.next;
 			}
+			System.out.print(" -> NULL");
 		}
 	}
 
@@ -69,16 +71,9 @@ public class SinglyNodeList {
 			head = newNode;
 		} else {
 			Node trav = head;
-			int i = 1;
 			while (trav.next != null) {
-//				System.out.println("Node " + i++);
-//				System.out.println("Data: " + trav.data);
-//				System.out.println("Data: " + trav.next);
 				trav = trav.next;
 			}
-//			System.out.println("Node " + i++);
-//			System.out.println("Data: " + trav.data);
-//			System.out.println("Data: " + trav.next);
 			trav.next = newNode;
 		}
 	}
@@ -177,5 +172,10 @@ public class SinglyNodeList {
 			temp.next = trav.next;
 			// trav node is garbage collected
 		}
+	}
+
+	public void AddTwoList() {
+		// TODO Auto-generated method stub
+		
 	}
 }

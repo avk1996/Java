@@ -10,11 +10,14 @@ public class SinglyLinkedList {
 		SinglyNodeList list = new SinglyNodeList();
 		boolean exit = false;
 		while (!exit) {
-			System.out.println("Option\n"
+			System.out.println("\nOption\n"
 					+ "1. display list\n"
 					+ "2. add last element\n"
 					+ "3. add first element\n"
-					+ "4. add value at pos\n"
+					+ "4. add value at pos\n "
+					+ "5. Delete First\n"
+					+ "6. Delete All\n"
+					+ "7. Delete At Pos\n"
 					+ "0. Exit");
 			switch (sc.nextInt()) {
 			case 1:
@@ -47,6 +50,9 @@ public class SinglyLinkedList {
 				System.out.println("Delete at position: ");
 				System.out.println("Enter position: ");
 				list.listDeleteAtPos(sc.nextInt());
+				break;
+			case 8:
+				list.AddTwoList();
 				break;
 			case 0: exit = true;
 			System.out.println("Exit :(");
