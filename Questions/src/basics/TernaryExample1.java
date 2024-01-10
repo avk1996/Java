@@ -8,7 +8,7 @@ public class TernaryExample1 {
 		
 		float m;
 		m = 1.4f;
-		System.out.println("Type of : "+typeof(m));
+//		System.out.println("Type of : "+typeof(m));
 		m = (float) (m*23.44);
 	}
 }
