@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import list.core.SinglyNodeList;
 
-public class SinglyLinkedList {
+public class TesterSLL {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		SinglyNodeList list = new SinglyNodeList();
