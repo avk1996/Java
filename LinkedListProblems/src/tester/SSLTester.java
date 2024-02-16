@@ -5,9 +5,9 @@ import static core.SinglyLinkedList.*;
 public class SSLTester {
 	public static void main(String[] args) {
 
-		addFirstElement(30);
-		addFirstElement(20);
-		addFirstElement(10);
+//		addFirstElement(30);
+//		addFirstElement(20);
+//		addFirstElement(10);
 		addFirstElement(5);
 		addFirstElement(2);
 //		addFirstElement(1);
@@ -25,7 +25,7 @@ public class SSLTester {
 		System.out.println("list is sequence");
 		displayList();
 		System.out.println("list in revese");
-		reverseListM1();
+		reverseListM2();
 		displayList();
 		
 	}

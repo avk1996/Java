@@ -131,11 +131,31 @@ public class SinglyLinkedList {
 				trav = trav.next;
 				i++;
 			}
-			
-			head = null;//empty the linked list
-			
-			for(i=0;i<array.length;i++) {
+
+			head = null;// empty the linked list
+
+			for (i = 0; i < array.length; i++) {
 				addFirstElement(array[i]);
+			}
+		}
+	}
+
+	// using following and trailing pointers
+	public static void reverseListM2() {
+		if (isEmpty())
+			throw new RuntimeException("list is empty");
+		else {
+			Node trav1 = null;
+			Node trav2 = head;
+			Node trav3 = head.next;
+			while (trav2 != null) {
+				trav2.next = trav1;
+				trav1 = trav2;
+				trav2 = trav3;
+				if (trav3 == null)
+					break;
+				trav3 = trav3.next;
+				head = trav2;
 			}
 		}
 	}
