@@ -3,15 +3,20 @@ import java.util.Arrays;
 //find the maximum of arrays
 public class PeakElement {
 
-	public static int findPeak(int[] array,int size) {
-		int max;
+	public static int[] findPeak(int[] array,int size) {
+		int max, element;
+		int[] maxElement = new int[2];
 		max = array[0];
+		element = 0;
 		for(int i=1;i<array.length;i++) {
 			if(max < array[i]) {
 				max = array[i]; 
+				element = i;
 			}
 		}
-		return max;
+		maxElement[0] = max;
+		maxElement[1] = element;
+		return maxElement;
 	}
 	
 	public static void main(String[] args) {
@@ -25,7 +30,7 @@ public class PeakElement {
 		arrayTest[2] = 44;
 		arrayTest[5] = 25;
 		arrayTest[3] = 104;
-		System.out.println("Max of array amoung "+Arrays.toString(arrayTest)+" is : "+findPeak(arrayTest, arrayTest.length));		
+		System.out.println("Max of array amoung "+Arrays.toString(arrayTest)+" is : "+findPeak(arrayTest, arrayTest.length)[0]+" at position: "+findPeak(arrayTest, arrayTest.length)[1]);		
 	}
 
 }
