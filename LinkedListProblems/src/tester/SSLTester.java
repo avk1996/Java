@@ -11,15 +11,22 @@ public class SSLTester {
 		addFirstElement(5);
 		addFirstElement(2);
 //		addFirstElement(1);
-		displayList();
+//		displayList();
 		//Test1: Print the middle of given linked list
 
-		System.out.println("Middle element: "+findMiddleM1());
+//		System.out.println("Middle element: "+findMiddleM1());
+//		
+//		//Test2: Print the middle of linked list using fast and slow pointer
+//		
+//		System.out.println("Middle element: "+findMiddleM2());
+//		System.out.println("Middle element: "+findMiddleM3());
 		
-		//Test2: Print the middle of linked list using fast and slow pointer
-		
-		System.out.println("Middle element: "+findMiddleM2());
-		System.out.println("Middle element: "+findMiddleM3());
+		//reverse the linked list
+		System.out.println("list is sequence");
+		displayList();
+		System.out.println("list in revese");
+		reverseListM1();
+		displayList();
 		
 	}
 }

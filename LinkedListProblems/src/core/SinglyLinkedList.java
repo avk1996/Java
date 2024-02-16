@@ -45,6 +45,22 @@ public class SinglyLinkedList {
 		}
 	}
 
+	private static int listElements() {
+		int listCount = 0;
+		if (isEmpty())
+			throw new RuntimeException("list is empty");
+		else {
+			listCount = 1;
+			Node trav = head;
+			while (trav.next != null) {
+				trav = trav.next;
+				listCount++;
+			}
+
+		}
+		return listCount;
+	}
+
 	// find middle of linked list method1 time complexity O(n) and space comlexity
 	// O(1)
 	public static int findMiddleM1() {
@@ -56,14 +72,8 @@ public class SinglyLinkedList {
 			return head.next.data;
 		} else {
 			// 1. count the list elements
-			Node trav = head;
-			int listCount = 1;
-			while (trav.next != null) {
-				trav = trav.next;
-				listCount++;
-			}
 			// 2. find the middle position
-			listCount = listCount / 2;
+			int listCount = listElements() / 2;
 			Node middle = head;
 			// 3. traverse till middle position
 			for (int pos = 1; pos <= listCount; pos++) {
@@ -106,4 +116,28 @@ public class SinglyLinkedList {
 		}
 		return mid.data;
 	}
+
+	// Reversing the linked list: using array
+	public static void reverseListM1() {
+		if (isEmpty())
+			throw new RuntimeException("list is empty");
+		else {
+
+			int[] array = new int[listElements()];
+			Node trav = head;
+			int i = 0;
+			while (trav != null) {
+				array[i] = trav.data;
+				trav = trav.next;
+				i++;
+			}
+			
+			head = null;//empty the linked list
+			
+			for(i=0;i<array.length;i++) {
+				addFirstElement(array[i]);
+			}
+		}
+	}
+
 }
