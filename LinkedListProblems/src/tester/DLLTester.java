@@ -8,10 +8,7 @@ public class DLLTester {
 		for(int i = 1;i<=5;i++) {
 			addLast(i*10);			
 		}
-		System.out.println("original list: ");
-		displayList();
-		reverseList();
-		System.out.println("Reversed list: ");
 		displayList();
 	}
+
 }
