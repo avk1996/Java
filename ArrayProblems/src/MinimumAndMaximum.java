@@ -27,10 +27,6 @@ public class MinimumAndMaximum {
 		for(int i=0;i<numbers.length;i++) {
 			treeSet.add(numbers[i]);
 		}
-//		Iterator<Integer> it = treeSet.iterator();
-//		while(it.hasNext()) {
-//			treeSet.add(it.next());
-//		}
 		int[] minMax = new int[2];
 		minMax[0] = treeSet.first();
 		minMax[1] = treeSet.last();
