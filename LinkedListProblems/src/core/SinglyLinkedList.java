@@ -162,4 +162,64 @@ public class SinglyLinkedList {
 
 	// reverse linked list using recursion
 	
+	// rotate a linked list using brute force: doesn't work for large numbers
+	public Node rotateRight1(Node head, int k) {
+        if(head == null){
+            return null;
+        }
+        else if(head.next == null){
+            return head;
+        }
+        else{
+            for(int i=0;i<k;i++){
+                Node trav = head;
+                while(trav.next.next!=null){
+                    trav = trav.next;
+                }
+                Node newNode = new Node(trav.next.data);
+                trav.next = null;
+                newNode.next = head;
+                head = newNode;
+            }
+            return head;
+        }
+    }
+	// works for large numbers
+	public Node rotateRight2(Node head, int k) {
+        int listSize = listSize(head);
+        if(head == null || listSize == 0){
+            return null;
+        }
+        else if(listSize == 1){
+            return head;
+        }
+        else{
+            k = k % listSize;
+            for(int i=0;i<k;i++){
+                Node trav = head;
+                while(trav.next.next!=null){
+                    trav = trav.next;
+                }
+                Node newNode = new Node(trav.next.data);
+                trav.next = null;
+                newNode.next = head;
+                head = newNode;
+            }  
+            return head;
+        }
+    }
+    public static int listSize(Node head){
+        if(head == null){
+            return 0;
+        }
+        Node trav = head;
+            
+        int lSize = 1;
+            
+        while(trav.next!=null){
+            trav = trav.next;
+            ++lSize;
+        }
+        return lSize;
+    }
 }
