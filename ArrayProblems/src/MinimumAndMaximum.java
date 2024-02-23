@@ -1,8 +1,11 @@
+import java.util.Iterator;
+import java.util.TreeSet;
 
 public class MinimumAndMaximum {
 	public static void main(String[] args) {
-		int[] x = {1,2,3,4,5,6};
+		int[] x = {5,2,3,6,1,4};
 		System.out.println("min: "+minMax(x)[0]+" max: "+minMax(x)[1]);
+		System.out.println("min: "+minMaxByTreeSet(x)[0]+" max: "+minMaxByTreeSet(x)[1]);
 	}
 	public static int[] minMax(int[] numbers) {
 		int[] minMax = new int[2];
@@ -20,4 +23,19 @@ public class MinimumAndMaximum {
 		
 		return minMax;
 	}
+	public static int[] minMaxByTreeSet(int[] numbers) {
+		TreeSet<Integer> treeSet = new TreeSet<>();
+		for(int i=0;i<numbers.length;i++) {
+			treeSet.add(numbers[i]);
+		}
+//		Iterator<Integer> it = treeSet.iterator();
+//		while(it.hasNext()) {
+//			treeSet.add(it.next());
+//		}
+		int[] minMax = new int[2];
+		minMax[0] = treeSet.first();
+		minMax[1] = treeSet.last();
+		return minMax;
+		
+	}	
 }
