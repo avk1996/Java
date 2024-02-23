@@ -1,4 +1,3 @@
-import java.util.Iterator;
 import java.util.TreeSet;
 
 public class MinimumAndMaximum {
@@ -36,6 +35,5 @@ public class MinimumAndMaximum {
 		minMax[0] = treeSet.first();
 		minMax[1] = treeSet.last();
 		return minMax;
-		
 	}	
 }
