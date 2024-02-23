@@ -209,7 +209,7 @@ public class SinglyLinkedList {
         }
     }
     public static int listSize(Node head){
-        if(head == null){
+        if(isEmpty()){
             return 0;
         }
         Node trav = head;
@@ -221,5 +221,21 @@ public class SinglyLinkedList {
             ++lSize;
         }
         return lSize;
+    }
+    
+    // find the Nth node from last
+    public static int lastNthNode(Node head,int n) {
+    	if(isEmpty()) {
+    		throw new RuntimeException("List is empty");
+    	}
+    	else {
+    		Node trav = head;
+    		int lSize = listSize(head);
+    		lSize = n - lSize;
+    		for(int i=0;i<lSize;i++) {
+    			trav = trav.next;
+    		}
+    		return trav.data;
+    	}
     }
 }
