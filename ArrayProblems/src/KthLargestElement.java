@@ -12,6 +12,8 @@ public class KthLargestElement {
 		System.out.println(Arrays.toString(nums));
 		System.out.println(nums[nums.length - k]);
 		
+		//without using sorting find the kth largest element
+		
 		// int max = nums[0];
 		// for(int i=1;i<nums.length;i++){
 		// if(nums[i] > max){
@@ -19,5 +21,6 @@ public class KthLargestElement {
 		// }
 		// }
 		// return max;
+		StringBuffer stringBuffer = 
 	}
 }
