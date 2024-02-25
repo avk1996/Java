@@ -281,4 +281,23 @@ public class SinglyLinkedList {
 			return head;
 		}
 	}
+
+	//swapping the pairs in linked list
+	public static Node NodeswapPairs(Node head) {
+
+		if (isEmpty() || head.next == null)
+			return head;
+		else {
+			Node trav = head;
+			while (trav != null) {
+				if (trav.next == null)
+					break;
+				int temp = trav.data;
+				trav.data = trav.next.data;
+				trav.next.data = temp;
+				trav = trav.next.next;
+			}
+			return head;
+		}
+	}
 }
