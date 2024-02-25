@@ -318,4 +318,28 @@ public class SinglyLinkedList {
 			return head;
 		}
 	}
+	
+	// removing duplicates
+	public Node deleteDuplicates(Node head) {
+        Node trav = head;
+        Node follow = head;
+        
+        if(isEmpty() || head.next == null){
+            return head;
+        }
+        else{
+            while(trav.next!=null){
+                int target = trav.data;
+                
+                if(target == trav.next.data){
+                    trav.next = trav.next.next;
+                }else{
+                    trav = trav.next;
+                }
+            }
+            
+            return head;
+        }
+    }
+    
 }
