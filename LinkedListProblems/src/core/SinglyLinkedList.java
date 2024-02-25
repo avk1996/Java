@@ -282,7 +282,7 @@ public class SinglyLinkedList {
 		}
 	}
 
-	//swapping the pairs in linked list
+	// swapping the pairs in linked list
 	public static Node NodeswapPairs(Node head) {
 
 		if (isEmpty() || head.next == null)
@@ -297,6 +297,24 @@ public class SinglyLinkedList {
 				trav.next.data = temp;
 				trav = trav.next.next;
 			}
+			return head;
+		}
+	}
+
+	// removing the middle of element
+	public Node deleteMiddle(Node head) {
+
+		if (isEmpty()) {
+			return head;
+		} else if (head.next == null) {
+			return null;
+		} else {
+			int middleList = listSize(head) / 2;
+			Node trav = head;
+			for (int i = 1; i < middleList; i++) {
+				trav = trav.next;
+			}
+			trav.next = trav.next.next;
 			return head;
 		}
 	}
