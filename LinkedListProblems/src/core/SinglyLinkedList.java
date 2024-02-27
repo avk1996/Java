@@ -342,4 +342,22 @@ public class SinglyLinkedList {
         }
     }
     
+	//find loop in a list
+	public boolean hasCycle(Node head) {
+        Node slow = head;
+        Node fast = head;        
+
+        if(head == null){
+            return false;
+        }
+        else{
+            while(slow!=null && fast!=null && fast.next!=null){
+                slow = slow.next;
+                fast = fast.next.next;
+                if(slow == fast)
+                    return true;
+            }
+        }
+        return false;
+    }
 }
