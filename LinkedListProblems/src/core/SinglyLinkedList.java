@@ -1,5 +1,7 @@
 package core;
 
+import java.util.List;
+
 public class SinglyLinkedList {
 	static private class Node {
 		int data;
@@ -44,7 +46,30 @@ public class SinglyLinkedList {
 			head = newNode;
 		}
 	}
+	
+	// add last elements
+	public static void addLast(int data) {
+		Node newNode = new Node(data);
+		
+		if(isEmpty()) {
+			head = newNode;
+		}
+		else {
+			Node trav = head;
+			while(trav.next!=null) {
+				trav = trav.next;
+			}
+			trav.next = newNode;
+		}
+	}
 
+	// add all at once
+	public static void addBulk(List<Integer> data) {
+		for(int i: data) {			
+			addLast(i);
+		}		
+	}
+	
 	private static int listElements() {
 		int listCount = 0;
 		if (isEmpty())
@@ -342,7 +367,7 @@ public class SinglyLinkedList {
         }
     }
     
-	//find loop in a list
+	// find loop in a list
 	public boolean hasCycle(Node head) {
         Node slow = head;
         Node fast = head;        
@@ -360,4 +385,6 @@ public class SinglyLinkedList {
         }
         return false;
     }
+	
+	// add 
 }
