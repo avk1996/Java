@@ -46,17 +46,16 @@ public class SinglyLinkedList {
 			head = newNode;
 		}
 	}
-	
+
 	// add last elements
 	public static void addLast(int data) {
 		Node newNode = new Node(data);
-		
-		if(isEmpty()) {
+
+		if (isEmpty()) {
 			head = newNode;
-		}
-		else {
+		} else {
 			Node trav = head;
-			while(trav.next!=null) {
+			while (trav.next != null) {
 				trav = trav.next;
 			}
 			trav.next = newNode;
@@ -65,11 +64,11 @@ public class SinglyLinkedList {
 
 	// add all at once
 	public static void addBulk(List<Integer> data) {
-		for(int i: data) {			
+		for (int i : data) {
 			addLast(i);
-		}		
+		}
 	}
-	
+
 	private static int listElements() {
 		int listCount = 0;
 		if (isEmpty())
@@ -343,48 +342,64 @@ public class SinglyLinkedList {
 			return head;
 		}
 	}
-	
+
 	// removing duplicates
 	public Node deleteDuplicates(Node head) {
-        Node trav = head;
-        Node follow = head;
-        
-        if(isEmpty() || head.next == null){
-            return head;
-        }
-        else{
-            while(trav.next!=null){
-                int target = trav.data;
-                
-                if(target == trav.next.data){
-                    trav.next = trav.next.next;
-                }else{
-                    trav = trav.next;
-                }
-            }
-            
-            return head;
-        }
-    }
-    
+		Node trav = head;
+		Node follow = head;
+
+		if (isEmpty() || head.next == null) {
+			return head;
+		} else {
+			while (trav.next != null) {
+				int target = trav.data;
+
+				if (target == trav.next.data) {
+					trav.next = trav.next.next;
+				} else {
+					trav = trav.next;
+				}
+			}
+
+			return head;
+		}
+	}
+
 	// find loop in a list
 	public boolean hasCycle(Node head) {
-        Node slow = head;
-        Node fast = head;        
+		Node slow = head;
+		Node fast = head;
 
-        if(head == null){
-            return false;
-        }
-        else{
-            while(slow!=null && fast!=null && fast.next!=null){
-                slow = slow.next;
-                fast = fast.next.next;
-                if(slow == fast)
-                    return true;
-            }
-        }
-        return false;
-    }
-	
-	// add 
+		if (head == null) {
+			return false;
+		} else {
+			while (slow != null && fast != null && fast.next != null) {
+				slow = slow.next;
+				fast = fast.next.next;
+				if (slow == fast)
+					return true;
+			}
+		}
+		return false;
+	}
+
+	// Delete N nodes after M nodes of a linked list
+	public static void mNNodes(int m, int n) {
+		if (isEmpty()) {
+			throw new RuntimeException("list is empty");
+		} else {
+			Node trav = head;
+			Node follow = null;
+			while (trav != null) {
+				for (int i = 0; i < m; i++) {
+					follow = trav;
+					trav = trav.next;
+				}
+				for (int i = 0; i < n; i++) {
+					follow.next = trav.next;
+					trav = trav == null ? null : follow.next;
+				}
+			}
+		}
+	}
 }
