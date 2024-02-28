@@ -3,7 +3,7 @@ package core;
 import java.util.List;
 
 public class SinglyLinkedList {
-	static private class Node {
+	public static class Node {
 		int data;
 		Node next;
 
@@ -11,19 +11,25 @@ public class SinglyLinkedList {
 			this.data = data;
 			this.next = null;
 		}
+
+		public Node() {
+			this.data = 0;
+			this.next = null;
+		}
 	}
 
-	private static Node head;
+	private static Node head1;
+	private static Node head2;
 
 	// empty linked list check
-	public static boolean isEmpty() {
+	public static boolean isEmpty(Node head) {
 		return head == null;
 	}
 
 	// show linked list
-	public static int displayList() {
+	public static int displayList(Node head) {
 		int countList = 0;
-		if (isEmpty()) {
+		if (isEmpty(head)) {
 			throw new RuntimeException("linked list empty");
 		} else {
 			Node trav = head;
@@ -36,10 +42,10 @@ public class SinglyLinkedList {
 	}
 
 	// add elements at first
-	public static void addFirstElement(int data) {
+	public static void addFirstElement(Node head, int data) {
 		Node newNode = new Node(data);
 
-		if (isEmpty()) {
+		if (isEmpty(head)) {
 			head = newNode;
 		} else {
 			newNode.next = head;
@@ -48,10 +54,10 @@ public class SinglyLinkedList {
 	}
 
 	// add last elements
-	public static void addLast(int data) {
+	public static void addLast(Node head, int data) {
 		Node newNode = new Node(data);
 
-		if (isEmpty()) {
+		if (isEmpty(head)) {
 			head = newNode;
 		} else {
 			Node trav = head;
@@ -63,15 +69,15 @@ public class SinglyLinkedList {
 	}
 
 	// add all at once
-	public static void addBulk(List<Integer> data) {
+	public static void addBulk(Node head, List<Integer> data) {
 		for (int i : data) {
-			addLast(i);
+			addLast(head, i);
 		}
 	}
 
-	private static int listElements() {
+	private static int listElements(Node head) {
 		int listCount = 0;
-		if (isEmpty())
+		if (isEmpty(head))
 			throw new RuntimeException("list is empty");
 		else {
 			listCount = 1;
@@ -87,8 +93,8 @@ public class SinglyLinkedList {
 
 	// find middle of linked list method1 time complexity O(n) and space comlexity
 	// O(1)
-	public static int findMiddleM1() {
-		if (isEmpty()) {
+	public static int findMiddleM1(Node head) {
+		if (isEmpty(head)) {
 			throw new RuntimeException("list is empty");
 		} else if (head.next == null) {
 			return head.data;
@@ -97,7 +103,7 @@ public class SinglyLinkedList {
 		} else {
 			// 1. count the list elements
 			// 2. find the middle position
-			int listCount = listElements() / 2;
+			int listCount = listElements(head) / 2;
 			Node middle = head;
 			// 3. traverse till middle position
 			for (int pos = 1; pos <= listCount; pos++) {
@@ -109,9 +115,9 @@ public class SinglyLinkedList {
 
 	// find the middle of linked list method2 O(n) and O(1) using fast and slow
 	// pointer
-	public static int findMiddleM2() {
+	public static int findMiddleM2(Node head) {
 		Node slow = head;
-		if (isEmpty()) {
+		if (isEmpty(head)) {
 			throw new RuntimeException("list is empty");
 		} else {
 			Node fast = head;
@@ -124,9 +130,9 @@ public class SinglyLinkedList {
 	}
 
 	// find the middle of linked list method3
-	public static int findMiddleM3() {
+	public static int findMiddleM3(Node head) {
 		Node mid = head;
-		if (isEmpty()) {
+		if (isEmpty(head)) {
 			throw new RuntimeException("list is empty");
 		} else {
 			int i = 1;
@@ -142,12 +148,12 @@ public class SinglyLinkedList {
 	}
 
 	// Reversing the linked list: using array
-	public static void reverseListM1() {
-		if (isEmpty())
+	public static void reverseListM1(Node head) {
+		if (isEmpty(head))
 			throw new RuntimeException("list is empty");
 		else {
 
-			int[] array = new int[listElements()];
+			int[] array = new int[listElements(head)];
 			Node trav = head;
 			int i = 0;
 			while (trav != null) {
@@ -159,14 +165,14 @@ public class SinglyLinkedList {
 			head = null;// empty the linked list
 
 			for (i = 0; i < array.length; i++) {
-				addFirstElement(array[i]);
+				addFirstElement(head, array[i]);
 			}
 		}
 	}
 
 	// using following and trailing pointers
-	public static void reverseListM2() {
-		if (isEmpty())
+	public static void reverseListM2(Node head) {
+		if (isEmpty(head))
 			throw new RuntimeException("list is empty");
 		else {
 			Node trav1 = null;
@@ -231,7 +237,7 @@ public class SinglyLinkedList {
 	}
 
 	public static int listSize(Node head) {
-		if (isEmpty()) {
+		if (isEmpty(head)) {
 			return 0;
 		}
 		Node trav = head;
@@ -247,7 +253,7 @@ public class SinglyLinkedList {
 
 	// find the Nth node from last
 	public static int lastNthNode(Node head, int n) {
-		if (isEmpty()) {
+		if (isEmpty(head)) {
 			throw new RuntimeException("List is empty");
 		} else {
 			Node trav = head;
@@ -287,7 +293,7 @@ public class SinglyLinkedList {
 
 	public Node removeNthFromEnd(Node head, int n) {
 		int lSize = listSize(head);
-		if (isEmpty()) {
+		if (isEmpty(head)) {
 			return null;
 		} else if (head.next == null) {
 			return null;
@@ -309,7 +315,7 @@ public class SinglyLinkedList {
 	// swapping the pairs in linked list
 	public static Node NodeswapPairs(Node head) {
 
-		if (isEmpty() || head.next == null)
+		if (isEmpty(head) || head.next == null)
 			return head;
 		else {
 			Node trav = head;
@@ -328,7 +334,7 @@ public class SinglyLinkedList {
 	// removing the middle of element
 	public Node deleteMiddle(Node head) {
 
-		if (isEmpty()) {
+		if (isEmpty(head)) {
 			return head;
 		} else if (head.next == null) {
 			return null;
@@ -348,7 +354,7 @@ public class SinglyLinkedList {
 		Node trav = head;
 		Node follow = head;
 
-		if (isEmpty() || head.next == null) {
+		if (isEmpty(head) || head.next == null) {
 			return head;
 		} else {
 			while (trav.next != null) {
@@ -384,8 +390,8 @@ public class SinglyLinkedList {
 	}
 
 	// Delete N nodes after M nodes of a linked list
-	public static void mNNodes(int m, int n) {
-		if (isEmpty()) {
+	public static void mNNodes(Node head, int m, int n) {
+		if (isEmpty(head)) {
 			throw new RuntimeException("list is empty");
 		} else {
 			Node trav = head;
@@ -401,5 +407,32 @@ public class SinglyLinkedList {
 				}
 			}
 		}
+	}
+
+	// Merge a linked list into another linked list at alternate positions
+	public static Node merge2Lists(Node head1, Node head2) {
+		Node newNode = new Node();
+		if (isEmpty(head1) && isEmpty(head2))
+			return null;
+		else if (isEmpty(head1))
+			return head2;
+		else if (isEmpty(head2))
+			return head1;
+		else {
+			int s1 = listSize(head1);
+			int s2 = listSize(head2);
+			int itr = s1 > s2 ? s1 : s2;
+			for (int i = 0; i < itr; i++) {
+				if(head1!=null) {
+					addLast(newNode, head1.data);
+					head1 = head1.next;
+				}
+				if(head2!=null) {
+					addLast(newNode, head2.data);
+					head2 = head2.next;
+				}
+			}
+		}
+		return newNode.next;
 	}
 }
