@@ -18,7 +18,8 @@ public class CountPairSums {
 			for(int j=i;j<arr.length;j++) {
 				sum = sum  + arr[j];				
 				if(sum == k) {
-					count++;	
+					count++;
+					break;
 				}
 			}
 		}
