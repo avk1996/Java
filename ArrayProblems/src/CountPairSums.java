@@ -27,7 +27,7 @@ public class CountPairSums {
 		return count;
 	}
 	
-	// count the pairs of distinct sums method 2
+	// count the pairs of non-distinct sums method 2
 	public static int countPairSums(int[] arr,int k) {
 		int count = 0;
 		if(arr.length == 0){
@@ -38,6 +38,22 @@ public class CountPairSums {
 			for(int j=i+1;j<arr.length;j++) {
 				sum = arr[i] + arr[j];				
 				if(sum == k) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
+	
+	// count the pairs of non-distinct sums method 
+	public static int countPairSumsNonDistinct(int[] arr,int k) {
+		int count = 0;
+		if(arr.length == 0){
+			return count;
+		}
+		for(int i=0;i<arr.length;i++) {
+			for(int j=i+1;j<arr.length;j++) {
+				if(arr[i] + arr[j]== k) {
 					count++;
 					break;
 				}
