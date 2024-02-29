@@ -14,11 +14,13 @@ public class CircularLinkedList {
 		}
 	}
 	private static Node head;
-	
+
+	// to check whether list is empty or not
 	public static boolean isEmpty() {
 		return head == null;
 	}
 
+	// display the linked list
 	public static void displayList() {
 		if(isEmpty())
 			throw new RuntimeException("list is empty");
@@ -31,6 +33,7 @@ public class CircularLinkedList {
 		}
 	}
 	
+	// add node element to last
 	public static void addLast(int val) {
 		Node newNode = new Node(val);
 		
@@ -48,4 +51,24 @@ public class CircularLinkedList {
 		}
 	}
 	
+	public static void deleteElement(int val) {
+		if(isEmpty())
+			throw new RuntimeException("List is empty");
+		else if(head.next == head)
+			if(head.val == val)
+				head = null;
+		else {
+			Node trav = null;
+			while(trav.next.val != val) {
+				if(trav.next != head)
+					break;
+				trav = trav.next;
+			}
+			if(trav.next == head)
+				trav.next = head;
+			else
+				trav.next = trav.next.next;
+		}
+			
+	}
 }
