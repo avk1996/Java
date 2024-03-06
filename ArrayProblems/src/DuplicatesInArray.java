@@ -13,6 +13,21 @@ public class DuplicatesInArray {
 		List<Integer> indices = findDuplicates(nums);
 		for(int i: indices)
 			System.out.println(i);
+		
+		System.out.println("Duplicate number is : "+findDuplicate(nums1));
+	}
+	
+	public static int findDuplicate(int[] nums) {
+        Arrays.sort(nums);
+        int size = nums.length;
+        int num = 0;
+        if(size == 0)
+            return num;
+        for(int i=0;i<size;i++){
+            if(i<size-1 && nums[i] == nums[i+1])
+                num = nums[i];
+        }
+        return num;
 	}
 
 	public static List<Integer> findDuplicates(int[] nums) {
