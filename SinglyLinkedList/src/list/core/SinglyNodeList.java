@@ -178,4 +178,16 @@ public class SinglyNodeList {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void deleteNode(Node node) {
+		Node head = node;
+        while(node.next!=null){
+            node.data = node.next.data;
+            head = node;
+            node = node.next;
+            System.out.println(head.data);
+        }
+        head.next = null;
+    
+	}
 }
