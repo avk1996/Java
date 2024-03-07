@@ -39,13 +39,13 @@ public class SSLTester {
 			System.out.println("Enter element " + (i + 1) + " : ");
 			lists.add(sc.nextInt());
 		}
-		addBulk(head, lists);
+		addBulk(lists);
 
 		System.out.println("list is sequence");
-		displayList(head);
-		mNNodes(head, 1, 1);
+		displayList();
+		mNNodes( 1, 1);
 		System.out.println("list modified");
-		displayList(head);
+		displayList();
 
 	}
 }

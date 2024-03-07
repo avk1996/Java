@@ -190,4 +190,8 @@ public class SinglyNodeList {
         head.next = null;
     
 	}
+	
+	//implement queue using linked list
+	
+	
 }
