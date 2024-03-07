@@ -24,7 +24,7 @@ public class Queue {
 		return head == null;
 	}
 
-	public static void push(int val) {
+	public static void enqueue(int val) {
 		// add first
 		Node newNode = new Node(val);
 		if (isEmpty()) {
@@ -35,7 +35,7 @@ public class Queue {
 		}
 	}
 
-	public static void pop() {
+	public static void dequeue() {
 		// remove last
 		if (isEmpty()) {
 			throw new RuntimeException("List is empty");

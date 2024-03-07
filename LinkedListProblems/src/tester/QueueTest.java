@@ -8,16 +8,16 @@ public class QueueTest {
 	public static void main(String[] args) {
 				
 //				displayQueue();
-				push(10);
-				push(20);
-				push(30);
-				push(40);
+				enqueue(10);
+				enqueue(20);
+				enqueue(30);
+				enqueue(40);
 				displayQueue();
 				System.out.println();
-				pop();
-				pop();
-				pop();
-				pop();
+				dequeue();
+				dequeue();
+				dequeue();
+				dequeue();
 				displayQueue();
 				
 
