@@ -437,4 +437,26 @@ public class SinglyLinkedList {
 		}
 		return newNode.next;
 	}
+
+	public static void sort() {
+		
+	// sort array 
+	if(head == null)
+        return;
+
+    for(Node i = head; i.next!=null; i = i.next)
+    {
+        System.out.println(i.data+" ");
+        for(Node j = i.next; j!=null; j = j.next)
+        {
+            System.out.println(i.data+" "+j.data);
+            if(i.data >= j.data)
+            {
+                int temp = i.data;
+                i.data = j.data;
+                j.data = temp;    
+            }
+        }
+    }
+}
 }
