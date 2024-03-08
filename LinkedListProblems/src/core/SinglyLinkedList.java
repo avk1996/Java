@@ -439,24 +439,51 @@ public class SinglyLinkedList {
 	}
 
 	public static void sort() {
-		
-	// sort array 
-	if(head == null)
-        return;
 
-    for(Node i = head; i.next!=null; i = i.next)
-    {
-        System.out.println(i.data+" ");
-        for(Node j = i.next; j!=null; j = j.next)
-        {
-            System.out.println(i.data+" "+j.data);
-            if(i.data >= j.data)
-            {
-                int temp = i.data;
-                i.data = j.data;
-                j.data = temp;    
+		// sort array
+		if (head == null)
+			return;
+
+		for (Node i = head; i.next != null; i = i.next) {
+			System.out.println(i.data + " ");
+			for (Node j = i.next; j != null; j = j.next) {
+				System.out.println(i.data + " " + j.data);
+				if (i.data >= j.data) {
+					int temp = i.data;
+					i.data = j.data;
+					j.data = temp;
+				}
+			}
+		}
+	}
+	
+	public Node detectCycle(Node head) {
+        Node slow = head;
+        Node fast = head;
+        
+        // this condition will fall apart when list don't have cycle
+        while (fast != null && fast.next != null) {
+
+        	// slow and fast pointer move until both pointers meet at same point
+            slow = slow.next;
+            fast = fast.next.next;
+
+            // if they meet at same point then we will move the slow pointer to first pointer
+            if (slow == fast) {
+                slow = head;
+                // then increment both pointer one by one until they meet
+                // when they meet exit the loop and send back the pointer which is pointing to start cycle
+                while (slow != fast){
+                    slow = slow.next;
+                    fast = fast.next;
+
+                }
+                
+                return slow;
+
             }
         }
+        return null;
     }
-}
+	
 }
