@@ -4,10 +4,12 @@ import java.util.HashMap;
 public class FindNonRepetativeNumber {
 
 	public static void main(String[] args) {
-//		int[] nums = { 5, 2, 2, 1, 1 };
-		int[] nums = { 2,2,1};
+		int[] nums = { 5, 2, 2, 1, 1 };
+//		int[] nums = { 2,2,1};
 //		System.out.println(firstNonOccurance(nums));
-		System.out.println(singleNumber(nums));
+//		System.out.println(singleNumber(nums));
+		System.out.println(singleNumber1(nums));
+		System.out.println(singleNumber2(nums));
 	}
 
 	public static int firstNonOccurance(int[] nums) {
@@ -55,5 +57,27 @@ public class FindNonRepetativeNumber {
 
 		return -1;
 	}
+	
+	public static int singleNumber1(int[] nums) {
+		int xor = 0;
+		for(int i=0;i<nums.length;i++) {
+			xor = xor ^ nums[i];
+		}
+		
+		return xor;
+	}
 
+	public static int singleNumber2(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int x : nums) {
+            map.put(x, map.getOrDefault(x, 0) + 1);
+        }
+
+        for (int key : map.keySet()) {
+            if (map.get(key) == 1) {
+                return key;
+            }
+        }
+        return -1;
+    }
 }
