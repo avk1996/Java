@@ -74,9 +74,13 @@ public class FindNonRepetativeNumber {
         }
 
         for (int key : map.keySet()) {
-            if (map.get(key) == 1) {
-                return key;
-            }
+//            if (map.get(key) == 1) {
+                System.out.println(key);
+//            }
+        }
+        
+        for(int value : map.values()) {
+        	System.out.println(value);
         }
         return -1;
     }
