@@ -456,34 +456,87 @@ public class SinglyLinkedList {
 			}
 		}
 	}
-	
+
 	public Node detectCycle(Node head) {
-        Node slow = head;
-        Node fast = head;
-        
-        // this condition will fall apart when list don't have cycle
-        while (fast != null && fast.next != null) {
+		Node slow = head;
+		Node fast = head;
 
-        	// slow and fast pointer move until both pointers meet at same point
-            slow = slow.next;
-            fast = fast.next.next;
+		// this condition will fall apart when list don't have cycle
+		while (fast != null && fast.next != null) {
 
-            // if they meet at same point then we will move the slow pointer to first pointer
-            if (slow == fast) {
-                slow = head;
-                // then increment both pointer one by one until they meet
-                // when they meet exit the loop and send back the pointer which is pointing to start cycle
-                while (slow != fast){
-                    slow = slow.next;
-                    fast = fast.next;
+			// slow and fast pointer move until both pointers meet at same point
+			slow = slow.next;
+			fast = fast.next.next;
 
-                }
-                
-                return slow;
+			// if they meet at same point then we will move the slow pointer to first
+			// pointer
+			if (slow == fast) {
+				slow = head;
+				// then increment both pointer one by one until they meet
+				// when they meet exit the loop and send back the pointer which is pointing to
+				// start cycle
+				while (slow != fast) {
+					slow = slow.next;
+					fast = fast.next;
 
-            }
-        }
-        return null;
-    }
-	
+				}
+
+				return slow;
+
+			}
+		}
+		return null;
+	}
+
+	public Node reverseKGroup(Node head, int k) {
+
+		int size = listSize();
+
+		if (size == 0)
+			return null;
+		else if (size <= k)
+			return reverseList(head);
+		else {
+			// new node setup
+			Node newNode = new Node(0);
+			Node travNewNode = newNode;
+
+			// division list setup
+			Node firstNode = head;
+			Node lastNode = head;
+			Node trav = head;
+
+			// determine groups
+			int groups = size / k;
+
+			for (int group = 0; group < groups; group++) {
+
+				lastNode = firstNode;
+				trav = firstNode;
+
+				for (int i = 0; i < k - 1; i++) {
+					lastNode = lastNode.next;
+				}
+				
+				firstNode = lastNode.next;
+				lastNode.next = null;
+
+				// new node will receive the reversed list
+				travNewNode.next = reverseList(trav);
+
+				while (travNewNode.next != null) {
+					travNewNode = travNewNode.next;
+				}
+
+			}
+
+			return newNode;
+		}
+
+	}
+
+	public Node reverseList(Node head) {
+		return null;
+	}
+
 }
