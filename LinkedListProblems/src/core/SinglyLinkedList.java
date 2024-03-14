@@ -536,7 +536,15 @@ public class SinglyLinkedList {
 	}
 
 	public Node reverseList(Node head) {
-		return null;
+		Node trav1 = null;
+		Node trav2 = head;
+		while(head!=null) {
+			head = head.next;
+			trav2.next = trav1;
+			trav1 = trav2;
+			trav2 = head;
+		}
+		return trav1;
 	}
 
 }
