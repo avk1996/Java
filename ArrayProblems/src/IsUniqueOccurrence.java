@@ -6,7 +6,7 @@ public class IsUniqueOccurrence {
 
 	public static void main(String[] args) {
 		int nums[] = { 3,5,-2,-3,-6,-6 };
-		isUniqueOccur(nums);
+//		isUniqueOccur(nums);
 		System.out.println("repeated : " + isUniqueOccur(nums));
 	}
 
@@ -30,6 +30,7 @@ public class IsUniqueOccurrence {
 
 		for (int i:nums) {
 				uniqueOcc.put(i, uniqueOcc.getOrDefault(i, 0)+1);
+				System.out.println(i+" "+uniqueOcc.getOrDefault(i, -1));
 		}
 
 		for (Integer i:uniqueOcc.values()) {
