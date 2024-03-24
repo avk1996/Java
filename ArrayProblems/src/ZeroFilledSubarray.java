@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ZeroFilledSubarray {
 
@@ -19,6 +17,7 @@ public class ZeroFilledSubarray {
 				k = 0;
 			}
 		}
+		
 		if (k != 0)
 			totalSub += allPossibleSubArray(k);
 
