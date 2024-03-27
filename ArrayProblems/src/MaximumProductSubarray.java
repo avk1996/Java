@@ -5,7 +5,6 @@ public class MaximumProductSubarray {
 		int[] nums = {-3,-1,-1};
 		System.out.println("Max product: "+maxProduct(nums));
 	}
-
 	private static int maxProduct(int[] nums) {
 		int leftProduct = 1;
 		int rightProduct = 1;

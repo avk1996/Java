@@ -4,6 +4,7 @@ public class CountPairSums {
 	public static void main(String[] args) {
 		int[] arr = { 1, 5, 7, -1, 5 };
 		int k = 6;
+		
 		System.out.println("count pairs: " + countPairSumsDistinct(arr, k));
 		System.out.println("count pairs: " + countPairSums(arr, k));
 	}
