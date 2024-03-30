@@ -7,7 +7,6 @@ public class CanPlaceFlowers {
 		int n = 1;
 
 		System.out.println("Can flowerbed : " + canPlaceFlowers(flowerbed, n));
-		System.out.println("Can flowerbed : " + canPlaceFlowersBetter(flowerbed, n));
 	}
 
 	private static boolean canPlaceFlowers(int[] flowerbed, int n) {
