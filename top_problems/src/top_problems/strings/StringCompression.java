@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class StringCompression {
 
 	public static void main(String[] args) {
+
 		char[] chars = { 'a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b' };
 		int result = compress(chars);
 		System.out.println("The string compression length is : " + result);
