@@ -1,3 +1,4 @@
+package top_problems.strings;
 
 public class MaxVowelsOfK {
 
@@ -21,9 +22,7 @@ public class MaxVowelsOfK {
 				count--;
 			max = Math.max(count, max);
 		}
-
 		return max;
-
 	}
 
 	// maximum number of substring within length k
@@ -48,5 +47,4 @@ public class MaxVowelsOfK {
 		}
 		return max;
 	}
-
 }
