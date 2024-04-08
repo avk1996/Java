@@ -17,7 +17,7 @@ public class MaxVowelsOfK {
 		for (int i = 0; i < s.length(); i++) {
 			if (vowels.contains(s.charAt(i) + ""))
 				count++;
-			if (i>=k && vowels.contains(s.charAt(i-k)+""))
+			if (i >= k && vowels.contains(s.charAt(i - k) + ""))
 				count--;
 			max = Math.max(count, max);
 		}
