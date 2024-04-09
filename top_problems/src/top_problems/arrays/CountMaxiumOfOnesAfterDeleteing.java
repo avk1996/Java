@@ -26,7 +26,7 @@ public class CountMaxiumOfOnesAfterDeleteing {
 				left++;
 			}
 
-			ans = Math.max(ans, right - left + 1);
+			ans = Math.max(ans, right - left);
 		}
 
 		return ans == nums.length ? ans - 1 : ans;
