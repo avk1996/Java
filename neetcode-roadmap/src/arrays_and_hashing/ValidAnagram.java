@@ -12,8 +12,12 @@ public class ValidAnagram {
 	}
 
 	private static boolean isAnagram(String s, String t) {
-		// TODO Auto-generated method stub
-		return false;
+		char[] sc = s.toCharArray();
+		char[] tc = t.toCharArray();
+		
+		Arrays.sort(sc);
+		Arrays.sort(tc);
+		return Arrays.equals(sc, tc);
 	}
 
 	private static boolean isAnagram1(String s, String t) {
