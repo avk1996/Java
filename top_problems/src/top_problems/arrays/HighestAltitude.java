@@ -10,8 +10,18 @@ public class HighestAltitude {
 		System.out.println("Highest altitude: " + maxAltitude);
 	}
 
-	// brute force
 	private static int largestAltitude(int[] gain) {
+		int maxAltitude = 0;
+		int gained = 0;
+		for (int i = 0; i < gain.length; i++) {
+			gained += gain[i];
+			maxAltitude = Math.max(gained, maxAltitude);
+		}
+		return maxAltitude;
+	}
+
+	// brute force
+	private static int largestAltitudeBrute(int[] gain) {
 		int[] temp = new int[gain.length + 1];
 		int gained = 0;
 		for (int i = 0; i < gain.length; i++) {
