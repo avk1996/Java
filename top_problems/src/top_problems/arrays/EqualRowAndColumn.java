@@ -1,6 +1,7 @@
 package top_problems.arrays;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class EqualRowAndColumn {
 
@@ -13,7 +14,17 @@ public class EqualRowAndColumn {
 		System.out.println("Equal no. of pairs: " + equals);
 	}
 
+	
 	private static int equalPairs(int[][] grid) {
+		
+		HashMap<String, String> mp = new HashMap<>();
+		
+		
+		return 0;
+	}
+
+
+	private static int equalPairsBrute(int[][] grid) {
 		int n = grid.length;
 		int[][] temp = new int[n][n];
 		for (int i = 0; i < n; i++) {
