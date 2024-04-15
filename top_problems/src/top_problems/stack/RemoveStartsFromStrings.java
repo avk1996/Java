@@ -12,8 +12,15 @@ public class RemoveStartsFromStrings {
 	}
 
 	private static String removeStars(String s) {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuilder string = new StringBuilder();
+		for (int i = 0; i < s.length(); i++) {
+			if(s.charAt(i) == '*')
+				string.deleteCharAt(string.length()-1);
+			else
+				string.append(s.charAt(i));
+		}
+		return string.toString();
+		
 	}
 
 	private static String removeStarsBrute(String s) {
