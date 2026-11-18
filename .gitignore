@@ -1,2 +1,12 @@
-/.metadata/
+# Java compiled files
 *.class
+
+# Build directories
+bin/
+out/
+target/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
