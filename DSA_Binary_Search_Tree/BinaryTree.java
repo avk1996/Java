@@ -1,4 +1,6 @@
+import java.util.ArrayDeque;
 import java.util.List;
+import java.util.Queue;
 
 public class BinaryTree {
     List<Integer> lists = List.of(1, 2, -1, -1, 3, 4, -1, -1, 5, -1, -1);
@@ -57,6 +59,23 @@ public class BinaryTree {
         System.out.println("Post-order Travarsal :- " + root.data);
     }
 
+    void levelOrderTraversal(Node root) {
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.offer(root);
+
+        while (queue.size() > 0) {
+            Node currentNode = queue.poll();
+            System.out.println("Level Traversal >> " + currentNode.data);
+
+            if (currentNode.left != null)
+                queue.offer(currentNode.left);
+            if (currentNode.right != null)
+                queue.offer(currentNode.right);
+        }
+
+        System.out.println("");
+    }
+
     public static void main(String[] args) {
         BinaryTree tree = new BinaryTree();
         // Tree Building method
@@ -74,5 +93,8 @@ public class BinaryTree {
         // Tree: Post-order Traversal method: left, right, root
         tree.postOrderTraversal(node);
 
+        System.out.println("\nTree: Level-order Traversal");
+        // Tree: Level-order Traversal method: using queue
+        tree.levelOrderTraversal(node);
     }
 }
